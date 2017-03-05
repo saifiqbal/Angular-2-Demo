@@ -1,0 +1,9 @@
+<h1>Abay Chal nikal</h1>
+<div class="col-md-6 col-md-offset-3">
+    <ul>
+        <li *ngFor="let user of users">
+            {{user.UserName}} ({{user.FirstName}} {{user.LastName}})
+            <!--- <a (click)="deleteUser(user.id)">Delete</a>-->
+        </li>
+    </ul>
+</div>
