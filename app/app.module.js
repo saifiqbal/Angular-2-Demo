@@ -15,6 +15,7 @@ var app_component_1 = require("./app.component");
 var app_routing_1 = require("./app.routing");
 var users_component_1 = require("./Users/users.component");
 var users_service_1 = require("./Services/users.service");
+var registration_component_1 = require("./Registration/registration.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -30,7 +31,8 @@ AppModule = __decorate([
         ],
         declarations: [
             app_component_1.AppComponent,
-            users_component_1.UserComponent
+            users_component_1.UserComponent,
+            registration_component_1.RegistrationComponent
         ],
         providers: [
             users_service_1.UserService
