@@ -8,6 +8,7 @@ import { routing } from './app.routing';
 import {UserComponent} from './Users/users.component';
 import {UserService} from './Services/users.service';
 import { RegistrationComponent } from './Registration/registration.component';
+import{DashBoardComponent}from './DashBoard/dashboard.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ imports:[
 declarations:[
     AppComponent,
     UserComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    DashBoardComponent
 ],
 providers:[
    UserService
