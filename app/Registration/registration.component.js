@@ -16,22 +16,23 @@ var RegistrationComponent = (function () {
     }
     RegistrationComponent.prototype.ngOnInit = function () {
         this.user = new forms_1.FormGroup({
-            name: new forms_1.FormControl(''),
+            name: new forms_1.FormControl('', forms_1.Validators.required),
             account: new forms_1.FormGroup({
-                email: new forms_1.FormControl(''),
-                confirm: new forms_1.FormControl('')
+                email: new forms_1.FormControl('', forms_1.Validators.required),
+                confirm: new forms_1.FormControl('', forms_1.Validators.required),
             }),
-            address: new forms_1.FormControl(''),
-            lastname: new forms_1.FormControl('')
+            address: new forms_1.FormControl('', forms_1.Validators.required),
+            lastname: new forms_1.FormControl('', forms_1.Validators.required)
         });
     };
     RegistrationComponent.prototype.Test = function (event) {
         debugger;
         console.log('Button click event in registration');
     };
-    RegistrationComponent.prototype.onSubmit = function () {
+    RegistrationComponent.prototype.onSubmit = function (data) {
         debugger;
         console.log('you submitted Form');
+        console.log(data);
     };
     return RegistrationComponent;
 }());

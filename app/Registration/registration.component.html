@@ -3,26 +3,14 @@
 <title>Registration</title>
 </head>
 <body>
-<!--<form  [formGroup]="loginForm" novalidate  (ng-submit)="onSubmit()">
-    <input formControlName="email" type="email" placeholder="Your email">
-    <p *ngIf="loginForm.controls.email.errors">This field is required!</p>
-
-    <input formControlName="password" type="password" placeholder="Your password">
-    <p *ngIf="loginForm.controls.password.errors">This field is required!</p>
-
-
-    <button type="submit">Log in</button>
-
-</form>-->
-
-
-<form (ngSubmit)="onSubmit($event)" [formGroup]="user">
+<form (ngSubmit)="onSubmit(register)" [formGroup]="user" #register="ngForm">
   <label>
     <span>Full name</span>
     <input
       type="text"
       placeholder="Your full name"
       formControlName="name">
+       <p *ngIf="user.controls.name.errors?.required">required error</p>
   </label>
   <div formGroupName="account">
     <label>
@@ -43,7 +31,7 @@
     <input formControlName="address" type="text" placeholder="Your Address">
 
     <input formControlName="lastname" type="text" placeholder="Your LastName">
-  <button type="submit">Sign up</button>
+  <button [disabled]="!register.form.valid" type="submit">Sign up</button>
 </form>
 </body>
 </html>
