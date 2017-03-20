@@ -3,15 +3,47 @@
 <title>Registration</title>
 </head>
 <body>
-<form  [formGroup]="loginForm" novalidate  (ng-submit)="onSubmit()" #registerForm="ngForm">
- <input formControlName="email" type="email" placeholder="Your email">
- <p *ngIf="loginForm.controls.email.errors">This field is required!</p>
+<!--<form  [formGroup]="loginForm" novalidate  (ng-submit)="onSubmit()">
+    <input formControlName="email" type="email" placeholder="Your email">
+    <p *ngIf="loginForm.controls.email.errors">This field is required!</p>
 
-<input formControlName="password" type="password" placeholder="Your password">
-<p *ngIf="loginForm.controls.password.errors">This field is required!</p>
+    <input formControlName="password" type="password" placeholder="Your password">
+    <p *ngIf="loginForm.controls.password.errors">This field is required!</p>
 
-<button type="submit">Log in</button>
 
+    <button type="submit">Log in</button>
+
+</form>-->
+
+
+<form (ngSubmit)="onSubmit($event)" [formGroup]="user">
+  <label>
+    <span>Full name</span>
+    <input
+      type="text"
+      placeholder="Your full name"
+      formControlName="name">
+  </label>
+  <div formGroupName="account">
+    <label>
+      <span>Email address</span>
+      <input
+        type="email"
+        placeholder="Your email address"
+        formControlName="email">
+    </label>
+    <label>
+      <span>Confirm address</span>
+      <input
+        type="email"
+        placeholder="Confirm your email address"
+        formControlName="confirm">
+    </label>
+  </div>
+    <input formControlName="address" type="text" placeholder="Your Address">
+
+    <input formControlName="lastname" type="text" placeholder="Your LastName">
+  <button type="submit">Sign up</button>
 </form>
 </body>
 </html>

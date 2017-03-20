@@ -12,13 +12,17 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var forms_1 = require("@angular/forms");
 var RegistrationComponent = (function () {
-    function RegistrationComponent(fb) {
-        this.fb = fb;
+    function RegistrationComponent() {
     }
     RegistrationComponent.prototype.ngOnInit = function () {
-        this.loginForm = this.fb.group({
-            email: ["", forms_1.Validators.required],
-            password: ["", forms_1.Validators.required]
+        this.user = new forms_1.FormGroup({
+            name: new forms_1.FormControl(''),
+            account: new forms_1.FormGroup({
+                email: new forms_1.FormControl(''),
+                confirm: new forms_1.FormControl('')
+            }),
+            address: new forms_1.FormControl(''),
+            lastname: new forms_1.FormControl('')
         });
     };
     RegistrationComponent.prototype.Test = function (event) {
@@ -26,6 +30,7 @@ var RegistrationComponent = (function () {
         console.log('Button click event in registration');
     };
     RegistrationComponent.prototype.onSubmit = function () {
+        debugger;
         console.log('you submitted Form');
     };
     return RegistrationComponent;
@@ -35,7 +40,7 @@ RegistrationComponent = __decorate([
         moduleId: module.id,
         templateUrl: 'registration.component.html'
     }),
-    __metadata("design:paramtypes", [forms_1.FormBuilder])
+    __metadata("design:paramtypes", [])
 ], RegistrationComponent);
 exports.RegistrationComponent = RegistrationComponent;
 //# sourceMappingURL=registration.component.js.map
