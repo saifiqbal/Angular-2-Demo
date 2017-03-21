@@ -9,14 +9,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var forms_1 = require("@angular/forms");
-var RegistrationComponent = (function () {
-    function RegistrationComponent() {
+const core_1 = require("@angular/core");
+const forms_1 = require("@angular/forms");
+let RegistrationComponent = class RegistrationComponent {
+    constructor() {
     }
-    RegistrationComponent.prototype.ngOnInit = function () {
+    ngOnInit() {
         this.user = new forms_1.FormGroup({
-            name: new forms_1.FormControl('', forms_1.Validators.required),
+            name: new forms_1.FormControl('', forms_1.Validators.compose([forms_1.Validators.required, forms_1.Validators.maxLength(20)])),
             account: new forms_1.FormGroup({
                 email: new forms_1.FormControl('', forms_1.Validators.required),
                 confirm: new forms_1.FormControl('', forms_1.Validators.required),
@@ -24,18 +24,18 @@ var RegistrationComponent = (function () {
             address: new forms_1.FormControl('', forms_1.Validators.required),
             lastname: new forms_1.FormControl('', forms_1.Validators.required)
         });
-    };
-    RegistrationComponent.prototype.Test = function (event) {
+    }
+    Test(event) {
         debugger;
         console.log('Button click event in registration');
-    };
-    RegistrationComponent.prototype.onSubmit = function (data) {
-        debugger;
-        console.log('you submitted Form');
-        console.log(data);
-    };
-    return RegistrationComponent;
-}());
+    }
+    onSubmit(isValid) {
+        this.submitted = true;
+        // debugger;  
+        // console.log('you submitted Form');  
+        // console.log(data);
+    }
+};
 RegistrationComponent = __decorate([
     core_1.Component({
         moduleId: module.id,

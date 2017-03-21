@@ -6,12 +6,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var DashBoardComponent = (function () {
-    function DashBoardComponent() {
-    }
-    return DashBoardComponent;
-}());
+const core_1 = require("@angular/core");
+let DashBoardComponent = class DashBoardComponent {
+};
 DashBoardComponent = __decorate([
     core_1.Component({
         moduleId: module.id,

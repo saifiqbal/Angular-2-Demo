@@ -3,35 +3,40 @@
 <title>Registration</title>
 </head>
 <body>
-<form (ngSubmit)="onSubmit(register)" [formGroup]="user" #register="ngForm">
-  <label>
+<form (ngSubmit)="onSubmit(user.valid)" #register="ngForm" [formGroup]="user">
+
+<div class="form-group">
     <span>Full name</span>
     <input
       type="text"
       placeholder="Your full name"
-      formControlName="name">
-       <p *ngIf="user.controls.name.errors?.required">required error</p>
-  </label>
+      formControlName="name" class="form-control">
+
+</div>
   <div formGroupName="account">
-    <label>
+    <div class="form-group">
       <span>Email address</span>
       <input
         type="email"
         placeholder="Your email address"
-        formControlName="email">
-    </label>
-    <label>
+        formControlName="email" class="form-control">
+        </div>
+    <div class="form-group">
       <span>Confirm address</span>
       <input
         type="email"
         placeholder="Confirm your email address"
-        formControlName="confirm">
-    </label>
+        formControlName="confirm" class="form-control">
+    </div>
   </div>
-    <input formControlName="address" type="text" placeholder="Your Address">
+  <div class="form-group">
+    <input formControlName="address" type="text" placeholder="Your Address" class="form-control">
+  </div>
+  <div class="form-group">
+    <input formControlName="lastname" type="text" placeholder="Your LastName" class="form-control">
+  </div>
 
-    <input formControlName="lastname" type="text" placeholder="Your LastName">
-  <button [disabled]="!register.form.valid" type="submit">Sign up</button>
+  <button [disabled]="!user.valid" type="submit">Sign up</button>
 </form>
 </body>
 </html>
