@@ -1,12 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var router_1 = require("@angular/router");
-var index_1 = require("./Users/index");
+const router_1 = require("@angular/router");
+const index_1 = require("./Users/index");
 // import { AppComponent } from './app.component';
-var dashboard_component_1 = require("./DashBoard/dashboard.component");
-var registration_component_1 = require("./Registration/registration.component");
+const dashboard_component_1 = require("./DashBoard/dashboard.component");
+const registration_component_1 = require("./Registration/registration.component");
 // import { AuthGuard } from './_guards/index';
-var appRoutes = [
+const appRoutes = [
     { path: 'Users', component: index_1.UserComponent },
     { path: 'register', component: registration_component_1.RegistrationComponent },
     { path: 'dashboard', component: dashboard_component_1.DashBoardComponent },

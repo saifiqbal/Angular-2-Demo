@@ -9,20 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var http_1 = require("@angular/http");
+const core_1 = require("@angular/core");
+const http_1 = require("@angular/http");
 require("rxjs/add/operator/map");
-var UserService = (function () {
-    function UserService(http) {
+let UserService = class UserService {
+    constructor(http) {
         this.http = http;
     }
-    UserService.prototype.getAllPersons = function () {
-        return this.http.get("http://localhost:5000/api/GetIntake").map(function (response) {
-            return response.json();
-        });
-    };
-    return UserService;
-}());
+    getAllPersons() {
+        return this.http.get(`http://localhost:5000/api/GetIntake`).map((response) => response.json());
+    }
+};
 UserService = __decorate([
     core_1.Injectable(),
     __metadata("design:paramtypes", [http_1.Http])
