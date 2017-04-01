@@ -9,13 +9,14 @@ export class RegistrationComponent implements OnInit {
     user: FormGroup;
     ngOnInit() {
       this.user = new FormGroup({
-        name: new FormControl('',Validators.required),
-        account: new FormGroup({
-          email: new FormControl('',Validators.required),
-          confirm: new FormControl('',Validators.required),
-        }),
-        address:new FormControl('',Validators.required),
-        lastname:new FormControl('',Validators.required)
+         FirstName: new FormControl('',Validators.required),
+         LastName: new FormControl('',Validators.required),
+         Email: new FormControl('',Validators.required),
+         CellPhone: new FormControl('',Validators.required),
+         Country: new FormControl('',Validators.required),
+         State: new FormControl('',Validators.required),
+         City: new FormControl('',Validators.required)
+         
       });
     }
 
@@ -30,5 +31,6 @@ export class RegistrationComponent implements OnInit {
         debugger;  
         console.log('you submitted Form');  
         console.log(data);
+        console.log(this.user.value);
     }
 }

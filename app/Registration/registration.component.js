@@ -16,13 +16,13 @@ var RegistrationComponent = (function () {
     }
     RegistrationComponent.prototype.ngOnInit = function () {
         this.user = new forms_1.FormGroup({
-            name: new forms_1.FormControl('', forms_1.Validators.required),
-            account: new forms_1.FormGroup({
-                email: new forms_1.FormControl('', forms_1.Validators.required),
-                confirm: new forms_1.FormControl('', forms_1.Validators.required),
-            }),
-            address: new forms_1.FormControl('', forms_1.Validators.required),
-            lastname: new forms_1.FormControl('', forms_1.Validators.required)
+            FirstName: new forms_1.FormControl('', forms_1.Validators.required),
+            LastName: new forms_1.FormControl('', forms_1.Validators.required),
+            Email: new forms_1.FormControl('', forms_1.Validators.required),
+            CellPhone: new forms_1.FormControl('', forms_1.Validators.required),
+            Country: new forms_1.FormControl('', forms_1.Validators.required),
+            State: new forms_1.FormControl('', forms_1.Validators.required),
+            City: new forms_1.FormControl('', forms_1.Validators.required)
         });
     };
     RegistrationComponent.prototype.Test = function (event) {
@@ -33,6 +33,7 @@ var RegistrationComponent = (function () {
         debugger;
         console.log('you submitted Form');
         console.log(data);
+        console.log(this.user.value);
     };
     return RegistrationComponent;
 }());
