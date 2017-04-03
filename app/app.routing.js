@@ -11,7 +11,7 @@ const appRoutes = [
     { path: 'register', component: registration_component_1.RegistrationComponent },
     { path: 'dashboard', component: dashboard_component_1.DashBoardComponent },
     // otherwise redirect to home
-    { path: '**', redirectTo: '' }
+    { path: '**', redirectTo: 'dashboard' }
 ];
 exports.routing = router_1.RouterModule.forRoot(appRoutes);
 //# sourceMappingURL=app.routing.js.map
