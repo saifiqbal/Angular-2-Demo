@@ -17,6 +17,7 @@ const users_component_1 = require("./Users/users.component");
 const users_service_1 = require("./Services/users.service");
 const registration_component_1 = require("./Registration/registration.component");
 const dashboard_component_1 = require("./DashBoard/dashboard.component");
+const router_1 = require("@angular/router");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -26,6 +27,7 @@ AppModule = __decorate([
             forms_1.FormsModule,
             http_1.HttpModule,
             forms_1.ReactiveFormsModule,
+            router_1.RouterModule,
             app_routing_1.routing
         ],
         declarations: [

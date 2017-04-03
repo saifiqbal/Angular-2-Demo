@@ -9,6 +9,7 @@ import {UserComponent} from './Users/users.component';
 import {UserService} from './Services/users.service';
 import { RegistrationComponent } from './Registration/registration.component';
 import{DashBoardComponent}from './DashBoard/dashboard.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ imports:[
    FormsModule,
    HttpModule,
    ReactiveFormsModule,
+   RouterModule,
    routing
 ],
 declarations:[
