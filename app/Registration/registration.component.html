@@ -4,18 +4,21 @@
 </head>
 <body>
 <form (ngSubmit)="onSubmit(register)" [formGroup]="user" #register="ngForm"  class="form-horizontal">
-
-
- <div class="form-group">
+ 
+ <div class="form-group" [ngClass]="{'has-error':!user.controls['FirstName'].valid && user.controls['FirstName'].touched}">
     <label class="control-label col-sm-2">First Name:</label>
     <div class="col-sm-10">
       <input type="text" class="form-control" id="FirstName" placeholder="Enter First Name" formControlName="FirstName">
+      <div *ngIf="user.controls['FirstName'].hasError('required') && user.controls['FirstName'].touched" class="alert alert-danger">First Name is Required</div>
     </div>
   </div>
-  <div class="form-group">
+  <div class="form-group" [ngClass]="{'has-error':!user.controls['LastName'].valid && user.controls['LastName'].touched}">
     <label class="control-label col-sm-2">Last Name:</label>
     <div class="col-sm-10"> 
       <input type="text" class="form-control" id="LastName" placeholder="Enter Last Name" formControlName="LastName">
+      <div *ngIf="user.controls['LastName'].hasError('required') && user.controls['LastName'].touched" class="alert alert-danger">Last Name is Required </div>
+      <div *ngIf="user.controls['LastName'].hasError('minlength') && user.controls['LastName'].touched" class="alert alert-danger">Last Name must be at least 5 characters long.</div>
+      <div *ngIf="user.controls['LastName'].hasError('maxlength') && user.controls['LastName'].touched" class="alert alert-danger">Last Name cannot exceed 10 characters.</div>
     </div>
   </div>
   <div class="form-group">
@@ -50,75 +53,9 @@
   </div>
   <div class="form-group"> 
     <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" class="btn btn-default">Submit</button>
+      <button type="submit" [disabled]="!user.valid" class="btn btn-default">Submit</button>
     </div>
   </div>
-
-
-
-
-
-
-<!--
-  <label>
-    <span>Full name</span>
-    <input
-      type="text"
-      placeholder="Your full name"
-      formControlName="name">
-       <p *ngIf="user.controls.name.errors?.required">required error</p>
-  </label>
-  <div formGroupName="account">
-    <label>
-      <span>Email address</span>
-      <input
-        type="email"
-        placeholder="Your email address"
-        formControlName="email">
-    </label>
-    <label>
-      <span>Confirm address</span>
-      <input
-        type="email"
-        placeholder="Confirm your email address"
-        formControlName="confirm">
-    </label>
-  </div>
-    <input formControlName="address" type="text" placeholder="Your Address">
-
-    <input formControlName="lastname" type="text" placeholder="Your LastName">
-  <button [disabled]="!register.form.valid" type="submit">Sign up</button>-->
 </form>
 </body>
 </html>
-
-
-
-
-
-<!--<form class="form-horizontal">
-  <div class="form-group">
-    <label class="control-label col-sm-2" for="email">Email:</label>
-    <div class="col-sm-10">
-      <input type="email" class="form-control" id="email" placeholder="Enter email">
-    </div>
-  </div>
-  <div class="form-group">
-    <label class="control-label col-sm-2" for="pwd">Password:</label>
-    <div class="col-sm-10"> 
-      <input type="password" class="form-control" id="pwd" placeholder="Enter password">
-    </div>
-  </div>
-  <div class="form-group"> 
-    <div class="col-sm-offset-2 col-sm-10">
-      <div class="checkbox">
-        <label><input type="checkbox"> Remember me</label>
-      </div>
-    </div>
-  </div>
-  <div class="form-group"> 
-    <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" class="btn btn-default">Submit</button>
-    </div>
-  </div>
-</form>-->

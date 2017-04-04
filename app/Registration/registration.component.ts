@@ -9,14 +9,13 @@ export class RegistrationComponent implements OnInit {
     user: FormGroup;
     ngOnInit() {
       this.user = new FormGroup({
-         FirstName: new FormControl('',Validators.required),
-         LastName: new FormControl('',Validators.required),
-         Email: new FormControl('',Validators.required),
-         CellPhone: new FormControl('',Validators.required),
-         Country: new FormControl('',Validators.required),
-         State: new FormControl('',Validators.required),
-         City: new FormControl('',Validators.required)
-         
+         FirstName: new FormControl(null,Validators.required),
+         LastName: new FormControl(null,Validators.compose([Validators.required,Validators.minLength(5),Validators.maxLength(15)])),
+         Email: new FormControl(null,Validators.required), /**/
+         CellPhone: new FormControl(null,Validators.required),
+         Country: new FormControl(null,Validators.required),
+         State: new FormControl(null,Validators.required),
+         City: new FormControl(null,Validators.required)
       });
     }
 

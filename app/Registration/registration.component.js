@@ -16,13 +16,13 @@ let RegistrationComponent = class RegistrationComponent {
     }
     ngOnInit() {
         this.user = new forms_1.FormGroup({
-            FirstName: new forms_1.FormControl('', forms_1.Validators.required),
-            LastName: new forms_1.FormControl('', forms_1.Validators.required),
-            Email: new forms_1.FormControl('', forms_1.Validators.required),
-            CellPhone: new forms_1.FormControl('', forms_1.Validators.required),
-            Country: new forms_1.FormControl('', forms_1.Validators.required),
-            State: new forms_1.FormControl('', forms_1.Validators.required),
-            City: new forms_1.FormControl('', forms_1.Validators.required)
+            FirstName: new forms_1.FormControl(null, forms_1.Validators.required),
+            LastName: new forms_1.FormControl(null, forms_1.Validators.compose([forms_1.Validators.required, forms_1.Validators.minLength(5), forms_1.Validators.maxLength(15)])),
+            Email: new forms_1.FormControl(null, forms_1.Validators.required),
+            CellPhone: new forms_1.FormControl(null, forms_1.Validators.required),
+            Country: new forms_1.FormControl(null, forms_1.Validators.required),
+            State: new forms_1.FormControl(null, forms_1.Validators.required),
+            City: new forms_1.FormControl(null, forms_1.Validators.required)
         });
     }
     Test(event) {
