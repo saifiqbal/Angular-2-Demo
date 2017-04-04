@@ -1,6 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-class User {
-}
+var User = (function () {
+    function User() {
+    }
+    return User;
+}());
 exports.User = User;
 //# sourceMappingURL=UserModel.js.map

@@ -6,20 +6,25 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = require("@angular/core");
-const platform_browser_1 = require("@angular/platform-browser");
-const forms_1 = require("@angular/forms");
-const http_1 = require("@angular/http");
-// import { RouterModule } from '@angular/router';
-const app_component_1 = require("./app.component");
-const app_routing_1 = require("./app.routing");
-const users_component_1 = require("./Users/users.component");
-const users_service_1 = require("./Services/users.service");
-const registration_component_1 = require("./Registration/registration.component");
-const dashboard_component_1 = require("./DashBoard/dashboard.component");
-const router_1 = require("@angular/router");
-let AppModule = class AppModule {
-};
+var core_1 = require("@angular/core");
+var platform_browser_1 = require("@angular/platform-browser");
+var forms_1 = require("@angular/forms");
+var http_1 = require("@angular/http");
+var app_component_1 = require("./app.component");
+var app_routing_1 = require("./app.routing");
+var users_component_1 = require("./Users/users.component");
+var registration_component_1 = require("./Registration/registration.component");
+var dashboard_component_1 = require("./DashBoard/dashboard.component");
+var login_component_1 = require("./Login/login.component");
+var router_1 = require("@angular/router");
+/*Services*/
+var users_service_1 = require("./Services/users.service");
+var auth_service_1 = require("./Services/auth.service");
+var AppModule = (function () {
+    function AppModule() {
+    }
+    return AppModule;
+}());
 AppModule = __decorate([
     core_1.NgModule({
         imports: [
@@ -34,10 +39,12 @@ AppModule = __decorate([
             app_component_1.AppComponent,
             users_component_1.UserComponent,
             registration_component_1.RegistrationComponent,
-            dashboard_component_1.DashBoardComponent
+            dashboard_component_1.DashBoardComponent,
+            login_component_1.LoginComponent
         ],
         providers: [
-            users_service_1.UserService
+            users_service_1.UserService,
+            auth_service_1.AuthService
         ],
         bootstrap: [app_component_1.AppComponent]
     })

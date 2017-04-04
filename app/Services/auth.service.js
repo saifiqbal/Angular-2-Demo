@@ -12,20 +12,30 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
 require("rxjs/add/operator/map");
-var UserService = (function () {
-    function UserService(http) {
-        this.http = http;
+var AuthService = (function () {
+    function AuthService(_http) {
+        this._http = _http;
     }
-    UserService.prototype.getAllPersons = function () {
-        return this.http.get("http://localhost:5000/api/GetIntake").map(function (response) {
-            return response.json();
+    AuthService.prototype.loginfn = function (userCredentials) {
+        var _this = this;
+        var header = new http_1.Headers();
+        var creds = "username=" + userCredentials.username + "&" + "password:" + userCredentials.password;
+        header.append('Content-Type', 'application/X-www-form=urlencoded');
+        return new Promise(function (resolve) {
+            _this._http.post('http://localhost:5000/api/authenticate', creds, { headers: header }).subscribe(function (data) {
+                if (data.json().success) {
+                    window.localStorage.setItem('auth-key', data.json().key);
+                    _this.isLoggedIn = true;
+                }
+                resolve(_this.isLoggedIn);
+            });
         });
     };
-    return UserService;
+    return AuthService;
 }());
-UserService = __decorate([
+AuthService = __decorate([
     core_1.Injectable(),
     __metadata("design:paramtypes", [http_1.Http])
-], UserService);
-exports.UserService = UserService;
-//# sourceMappingURL=users.service.js.map
+], AuthService);
+exports.AuthService = AuthService;
+//# sourceMappingURL=auth.service.js.map
