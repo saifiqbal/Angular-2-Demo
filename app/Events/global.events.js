@@ -10,19 +10,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = require("@angular/core");
-const http_1 = require("@angular/http");
-require("rxjs/add/operator/map");
-let UserService = class UserService {
-    constructor(http) {
-        this.http = http;
+const BehaviorSubject_1 = require("rxjs/BehaviorSubject");
+let GlobalEventsManager = class GlobalEventsManager {
+    constructor() {
+        this._showNavBar = new BehaviorSubject_1.BehaviorSubject(null);
+        this._showNavBarEmitter = this._showNavBar.asObservable();
     }
-    getAllPersons() {
-        return this.http.get(`http://localhost:5000/api/GetIntake`).map((response) => response.json());
+    showNavBar(_show) {
+        this._showNavBar.next(_show); /**/
     }
 };
-UserService = __decorate([
+GlobalEventsManager = __decorate([
     core_1.Injectable(),
-    __metadata("design:paramtypes", [http_1.Http])
-], UserService);
-exports.UserService = UserService;
-//# sourceMappingURL=users.service.js.map
+    __metadata("design:paramtypes", [])
+], GlobalEventsManager);
+exports.GlobalEventsManager = GlobalEventsManager;
+//# sourceMappingURL=global.events.js.map

@@ -6,7 +6,7 @@ import { User } from '../Model/UserModel';
 @Component({
     moduleId:module.id,
     templateUrl:'users.component.html',
-    styleUrls:['userStyle.css']
+    styleUrls:['userStyle.css'],
 })
 export class UserComponent implements OnInit{
     currentUser: User;

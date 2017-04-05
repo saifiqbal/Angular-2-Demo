@@ -9,18 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var users_service_1 = require("../Services/users.service");
+const core_1 = require("@angular/core");
+const users_service_1 = require("../Services/users.service");
 require("rxjs/add/operator/map");
-var UserComponent = (function () {
-    function UserComponent(_userservice) {
+let UserComponent = class UserComponent {
+    constructor(_userservice) {
         this._userservice = _userservice;
         this.users = [];
     }
-    UserComponent.prototype.ngOnInit = function () {
+    ngOnInit() {
         this.loadAllUsers();
-    };
-    UserComponent.prototype.loadAllUsers = function () {
+    }
+    loadAllUsers() {
         //this._userservice.getAllPersons().subscribe(users => { this.users = users;});
         this.users = [
             { "UserName": "Saif10P", "FirstName": "Saif", "LastName": "Iqbal" },
@@ -36,14 +36,13 @@ var UserComponent = (function () {
             { "UserName": "Test101p", "FirstName": "Ready", "LastName": "Test" },
             { "UserName": "Test1001P", "FirstName": "Started", "LastName": "Test" }
         ];
-    };
-    return UserComponent;
-}());
+    }
+};
 UserComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
         templateUrl: 'users.component.html',
-        styleUrls: ['userStyle.css']
+        styleUrls: ['userStyle.css'],
     }),
     __metadata("design:paramtypes", [users_service_1.UserService])
 ], UserComponent);

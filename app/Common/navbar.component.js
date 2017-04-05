@@ -10,19 +10,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = require("@angular/core");
-const http_1 = require("@angular/http");
-require("rxjs/add/operator/map");
-let UserService = class UserService {
-    constructor(http) {
-        this.http = http;
-    }
-    getAllPersons() {
-        return this.http.get(`http://localhost:5000/api/GetIntake`).map((response) => response.json());
+const global_events_1 = require("../Events/global.events");
+let NavBarComponent = class NavBarComponent {
+    constructor(_eventManager) {
+        this._eventManager = _eventManager;
+        this.showNavBar = false;
+        this._eventManager._showNavBarEmitter.subscribe((mode) => {
+            if (mode !== null) {
+                this.showNavBar = mode;
+            }
+        });
     }
 };
-UserService = __decorate([
-    core_1.Injectable(),
-    __metadata("design:paramtypes", [http_1.Http])
-], UserService);
-exports.UserService = UserService;
-//# sourceMappingURL=users.service.js.map
+NavBarComponent = __decorate([
+    core_1.Component({
+        moduleId: module.id,
+        templateUrl: 'navbar.component.html',
+        selector: 'navbar'
+    }),
+    __metadata("design:paramtypes", [global_events_1.GlobalEventsManager])
+], NavBarComponent);
+exports.NavBarComponent = NavBarComponent;
+//# sourceMappingURL=navbar.component.js.map

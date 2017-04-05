@@ -22,6 +22,6 @@ export class AuthService{
             }
             resolve(this.isLoggedIn);
             })
-    });
+       });
    }
 }
