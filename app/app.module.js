@@ -22,6 +22,9 @@ const router_1 = require("@angular/router");
 const users_service_1 = require("./Services/users.service");
 const auth_service_1 = require("./Services/auth.service");
 const global_events_1 = require("./Events/global.events");
+const bugs_component_1 = require("./jira/bugs.component");
+const story_component_1 = require("./jira/story.component");
+const jira_component_1 = require("./jira/jira.component");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -40,7 +43,10 @@ AppModule = __decorate([
             registration_component_1.RegistrationComponent,
             dashboard_component_1.DashBoardComponent,
             login_component_1.LoginComponent,
-            navbar_component_1.NavBarComponent
+            navbar_component_1.NavBarComponent,
+            bugs_component_1.BugsComponent,
+            jira_component_1.JiraComponent,
+            story_component_1.StoryComponent
         ],
         providers: [
             users_service_1.UserService,

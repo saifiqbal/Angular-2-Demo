@@ -17,7 +17,7 @@ export class UserComponent implements OnInit{
         this.loadAllUsers();
     }
     private loadAllUsers(){
-       //this._userservice.getAllPersons().subscribe(users => { this.users = users;});
+       this._userservice.getAllPersons().subscribe(users => { this.users = users;});
         this.users = [
             { "UserName": "Saif10P", "FirstName": "Saif","LastName":"Iqbal" },
             { "UserName": "10Pearls", "FirstName": "Saifullah" ,"LastName":"Iqbal"},

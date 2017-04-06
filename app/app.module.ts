@@ -14,7 +14,9 @@ import { RouterModule } from '@angular/router';
 import {UserService} from './Services/users.service';
 import {AuthService}from './Services/auth.service';
 import {GlobalEventsManager}from './Events/global.events'
-
+import { BugsComponent } from './jira/bugs.component';
+import { StoryComponent } from './jira/story.component';
+import { JiraComponent } from './jira/jira.component';
 
 @NgModule({
 imports:[
@@ -31,7 +33,10 @@ declarations:[
     RegistrationComponent,
     DashBoardComponent,
     LoginComponent,
-    NavBarComponent
+    NavBarComponent,
+    BugsComponent,
+    JiraComponent,
+    StoryComponent
 ],
 providers:[
    UserService,

@@ -1,8 +1,6 @@
-<html>
 <head>
 <title>Registration</title>
 </head>
-<body>
 <form (ngSubmit)="onSubmit(register)" [formGroup]="user" #register="ngForm"  class="form-horizontal">
  
  <div class="form-group" [ngClass]="{'has-error':!user.controls['FirstName'].valid && user.controls['FirstName'].touched}">
@@ -57,5 +55,3 @@
     </div>
   </div>
 </form>
-</body>
-</html>

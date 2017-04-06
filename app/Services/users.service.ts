@@ -5,11 +5,11 @@ import 'rxjs/add/operator/map'
 
 @Injectable()
 export class UserService{
-    constructor (private http:Http){
+        constructor (private http:Http){
 
-    }
+        }
         getAllPersons(){
-            return this.http.get(`http://localhost:5000/api/GetIntake`).map((response:Response) =>
+            return this.http.get(`https://emergemd.jira.com/rest/api/2/issue/PHX-4240`).map((response:Response) =>
                 response.json());
        }
 }

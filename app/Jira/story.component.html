@@ -1,0 +1,94 @@
+
+<head>
+<title>SubTask Creator</title>
+</head>
+<form (ngSubmit)="onSubmit(register)" [formGroup]="user" #register="ngForm"  class="form-horizontal">
+ 
+ <div class="form-group" [ngClass]="{'has-error':!user.controls['Analysis'].valid && user.controls['FirstName'].touched}">
+    <label class="control-label col-sm-2">Analysis:</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="Analysis" placeholder="" formControlName="Analysis">
+      <div *ngIf="user.controls['Analysis'].hasError('required') && user.controls['Analysis'].touched" class="alert alert-danger">First Name is Required</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2">Development:</label>
+    <div class="col-sm-10"> 
+      <input type="text" class="form-control" id="Development" placeholder="" formControlName="Development">
+    </div>
+  </div>
+  <div class="form-group" [ngClass]="{'has-error':!user.controls['DesignReview'].valid && user.controls['DesignReview'].touched}">
+    <label class="control-label col-sm-2">Design Review:</label>
+    <div class="col-sm-10"> 
+      <input type="text" class="form-control" id="DesignReview" placeholder="DesignReview" formControlName="DesignReview">
+      <div *ngIf="user.controls['DesignReview'].hasError('required') && user.controls['DesignReview'].touched" class="alert alert-danger">Last Name is Required </div>
+      <div *ngIf="user.controls['DesignReview'].hasError('minlength') && user.controls['DesignReview'].touched" class="alert alert-danger">Last Name must be at least 5 characters long.</div>
+      <div *ngIf="user.controls['DesignReview'].hasError('maxlength') && user.controls['DesignReview'].touched" class="alert alert-danger">Last Name cannot exceed 10 characters.</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2">Design Document:</label>
+    <div class="col-sm-10"> 
+      <input type="text" class="form-control" id="DesignDocument" placeholder="" formControlName="DesignDocument">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2">Development:</label>
+    <div class="col-sm-10"> 
+      <input type="text" class="form-control" id="Development" placeholder="" formControlName="Development">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2">Design Test Case(s):</label>
+    <div class="col-sm-10"> 
+      <input type="text" class="form-control" id="DesignTestCases" placeholder="" formControlName="DesignTestCase">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2">Code Audit (10Pearls):</label>
+    <div class="col-sm-10"> 
+      <input type="text" class="form-control" id="CodeAudit" placeholder="" formControlName="CodeAudit">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2">Code Deployment (10Pearls site):</label>
+    <div class="col-sm-10"> 
+      <input type="text" class="form-control" id="CodeDeployment" placeholder="" formControlName="CodeDeployment">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2">QA Testing (10Pearls site):</label>
+    <div class="col-sm-10"> 
+      <input type="text" class="form-control" id="QATesting" placeholder="" formControlName="QATesting">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2">Code Merge:</label>
+    <div class="col-sm-10"> 
+      <input type="text" class="form-control" id="CodeMerge" placeholder="" formControlName="CodeMerge">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2">FunctionalReview:</label>
+    <div class="col-sm-10"> 
+      <input type="text" class="form-control" id="FunctionalReview" placeholder="" formControlName="FunctionalReview">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2">Deployment to Dev/QA sites:</label>
+    <div class="col-sm-10"> 
+      <input type="text" class="form-control" id=">DeploymentToDev" placeholder="" formControlName="DeploymentToDev">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2">QA Integration:</label>
+    <div class="col-sm-10"> 
+      <input type="text" class="form-control" id="QAIntegration" placeholder="" formControlName="QAIntegration">
+    </div>
+  </div>
+  <div class="form-group"> 
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" [disabled]="!user.valid" class="btn btn-default">Submit</button>
+    </div>
+  </div>
+</form>

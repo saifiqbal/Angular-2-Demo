@@ -1,0 +1,95 @@
+<form novalidate (ngSubmit)="onSubmit(CreatSubTask)" [formGroup]="bugs" #register="ngForm" class="form-horizontal">
+ 
+ <div class="form-group" [ngClass]="{'has-error':!bugs.controls['Analysis'].valid && bugs.controls['Analysis'].touched}">
+    <label class="control-label col-sm-2">Analysis:</label>
+    <div class="col-sm-10">
+      <!--<input type="text" class="form-control" id="Analysis" placeholder="Enter First Name" formControlName="Analysis">
+      <div *ngIf="bugs.controls['Analysis'].hasError('required') && bugs.controls['Analysis'].touched" class="alert alert-danger">First Name is Required</div>-->
+       <select formControlName="Analysis" id="Analysis" class="form-control"> 
+         <option value="">Select a user</option> 
+        <option *ngFor="let obj of jiraUsers" [value]="obj.value">{{obj.name}}</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group" [ngClass]="{'has-error':!bugs.controls['Development'].valid && bugs.controls['Development'].touched}">
+    <label class="control-label col-sm-2">Development:</label>
+    <div class="col-sm-10"> 
+       <select formControlName="Development" id="Development" class="form-control"> 
+          <option value="">Select a user</option> 
+        <option *ngFor="let obj of jiraUsers" [value]="obj.value">{{obj.name}}</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group" [ngClass]="{'has-error':!bugs.controls['DesignTestCases'].valid && bugs.controls['DesignTestCases'].touched}">
+    <label class="control-label col-sm-2">Design Test Case(s):</label>
+    <div class="col-sm-10"> 
+      <select formControlName="DesignTestCases" id="DesignTestCases" class="form-control"> 
+         <option value="">Select a user</option> 
+        <option *ngFor="let obj of jiraUsers" [value]="obj.value">{{obj.name}}</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group" [ngClass]="{'has-error':!bugs.controls['CodeAudit'].valid && bugs.controls['CodeAudit'].touched}">
+    <label class="control-label col-sm-2">Code Audit (10Pearls):</label>
+    <div class="col-sm-10"> 
+      <select formControlName="CodeAudit" id="CodeAudit" class="form-control"> 
+         <option value="">Select a user</option> 
+        <option *ngFor="let obj of jiraUsers" [value]="obj.value">{{obj.name}}</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group" [ngClass]="{'has-error':!bugs.controls['CodeDeployment'].valid && bugs.controls['CodeDeployment'].touched}">
+    <label class="control-label col-sm-2">Code Deployment (10Pearls site):</label>
+    <div class="col-sm-10"> 
+      <select formControlName="CodeDeployment" id="CodeDeployment" class="form-control"> 
+         <option value="">Select a user</option> 
+        <option *ngFor="let obj of jiraUsers" [value]="obj.value">{{obj.name}}</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group"  [ngClass]="{'has-error':!bugs.controls['QaTesting'].valid && bugs.controls['QaTesting'].touched}">
+    <label class="control-label col-sm-2">QA Testing (10Pearls site):</label>
+    <div class="col-sm-10"> 
+     <select formControlName="QaTesting" id="QaTesting" class="form-control"> 
+        <option value="">Select a user</option> 
+       <option *ngFor="let obj of jiraUsers" [value]="obj.value">{{obj.name}}</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group" [ngClass]="{'has-error':!bugs.controls['CodeMerge'].valid && bugs.controls['CodeMerge'].touched}">
+    <label class="control-label col-sm-2">Code Merge:</label>
+    <div class="col-sm-10"> 
+     <select formControlName="CodeMerge" id="CodeMerge" class="form-control"> 
+        <option value="">Select a user</option> 
+       <option *ngFor="let obj of jiraUsers" [value]="obj.value">{{obj.name}}</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group" [ngClass]="{'has-error':!bugs.controls['DeploymentToDev'].valid && bugs.controls['DeploymentToDev'].touched}">
+    <label class="control-label col-sm-2">Deployment to Dev/QA sites:</label>
+    <div class="col-sm-10"> 
+    <select formControlName="DeploymentToDev" id="DeploymentToDev" class="form-control" > 
+        <option disabled selected>Select a User</option>
+        <option *ngFor="let obj of jiraUsers" [value]="obj.value" [selected]="i == 0">{{obj.name}}</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group" [ngClass]="{'has-error':!bugs.controls['QaIntegration'].valid && bugs.controls['QaIntegration'].touched}">
+    <label class="control-label col-sm-2">QA Integration:</label>
+    <div class="col-sm-10"> 
+     <select formControlName="QaIntegration" id="QaIntegration" class="form-control"> 
+        <option disabled selected>Select a User</option>
+        <option *ngFor="let obj of jiraUsers" [value]="obj.value">{{obj.name}}</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group"> 
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" [disabled]="!bugs.valid" class="btn btn-default">Submit</button>
+    </div>
+  </div>
+</form>
