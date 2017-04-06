@@ -1,94 +1,153 @@
+<div class='jira-component-center'>
+<form (ngSubmit)="onSubmit()" [formGroup]="story" #register="ngForm" class="form-horizontal">
+ <fieldset>
+  <legend>Jira Login:</legend>
+  <div class="form-group" [ngClass]="{'has-error':!story.controls['UserName'].valid && story.controls['UserName'].touched}">
+    <label class="control-label col-sm-2">UserName</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="UserName" formControlName="UserName">
+      <div *ngIf="story.controls['UserName'].hasError('required') && story.controls['UserName'].touched" class="alert alert-danger">Required</div>
+    </div>
+  </div>
+  <div class="form-group" [ngClass]="{'has-error':!story.controls['Password'].valid && story.controls['Password'].touched}">
+    <label class="control-label col-sm-2">Password:</label>
+    <div class="col-sm-10"> 
+      <input type="password" class="form-control" id="Password"  formControlName="Password">
+      <div *ngIf="story.controls['Password'].hasError('required') && story.controls['Password'].touched" class="alert alert-danger">Required</div>
+    </div>
+  </div>
+ </fieldset>
+    
+   <br>
+   <br>
 
-<head>
-<title>SubTask Creator</title>
-</head>
-<form (ngSubmit)="onSubmit(register)" [formGroup]="user" #register="ngForm"  class="form-horizontal">
- 
- <div class="form-group" [ngClass]="{'has-error':!user.controls['Analysis'].valid && user.controls['FirstName'].touched}">
+<fieldset>
+  <legend>SubTask Detail:</legend>
+ <div class="form-group" [ngClass]="{'has-error':!story.controls['Ticket'].valid && story.controls['Ticket'].touched}">
+    <label class="control-label col-sm-2">Enter Ticket #:</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="Ticket" placeholder="Enter Ticket Number" formControlName="Ticket">
+      <div *ngIf="story.controls['Ticket'].hasError('required') && story.controls['Ticket'].touched" class="alert alert-danger">Required</div>
+    </div>
+  </div>
+ <div class="form-group" [ngClass]="{'has-error':!story.controls['Analysis'].valid && story.controls['Analysis'].touched}">
     <label class="control-label col-sm-2">Analysis:</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="Analysis" placeholder="" formControlName="Analysis">
-      <div *ngIf="user.controls['Analysis'].hasError('required') && user.controls['Analysis'].touched" class="alert alert-danger">First Name is Required</div>
+       <select formControlName="Analysis" id="Analysis" class="form-control"> 
+         <option value="">Select a user</option> 
+        <option *ngFor="let obj of jiraUsers" [value]="obj.value">{{obj.name}}</option>
+      </select>
     </div>
   </div>
-  <div class="form-group">
+  <div class="form-group" [ngClass]="{'has-error':!story.controls['Development'].valid && story.controls['Development'].touched}">
     <label class="control-label col-sm-2">Development:</label>
     <div class="col-sm-10"> 
-      <input type="text" class="form-control" id="Development" placeholder="" formControlName="Development">
+       <select formControlName="Development" id="Development" class="form-control"> 
+          <option value="">Select a user</option> 
+        <option *ngFor="let obj of jiraUsers" [value]="obj.value">{{obj.name}}</option>
+      </select>
     </div>
   </div>
-  <div class="form-group" [ngClass]="{'has-error':!user.controls['DesignReview'].valid && user.controls['DesignReview'].touched}">
+  <div class="form-group" [ngClass]="{'has-error':!story.controls['DesignReview'].valid && story.controls['DesignReview'].touched}">
     <label class="control-label col-sm-2">Design Review:</label>
     <div class="col-sm-10"> 
-      <input type="text" class="form-control" id="DesignReview" placeholder="DesignReview" formControlName="DesignReview">
-      <div *ngIf="user.controls['DesignReview'].hasError('required') && user.controls['DesignReview'].touched" class="alert alert-danger">Last Name is Required </div>
-      <div *ngIf="user.controls['DesignReview'].hasError('minlength') && user.controls['DesignReview'].touched" class="alert alert-danger">Last Name must be at least 5 characters long.</div>
-      <div *ngIf="user.controls['DesignReview'].hasError('maxlength') && user.controls['DesignReview'].touched" class="alert alert-danger">Last Name cannot exceed 10 characters.</div>
+       <select formControlName="DesignReview" id="DesignReview" class="form-control"> 
+          <option value="">Select a user</option> 
+        <option *ngFor="let obj of jiraUsers" [value]="obj.value">{{obj.name}}</option>
+      </select>
     </div>
   </div>
-  <div class="form-group">
+  <div class="form-group" [ngClass]="{'has-error':!story.controls['DesignDocument'].valid && story.controls['DesignDocument'].touched}">
     <label class="control-label col-sm-2">Design Document:</label>
     <div class="col-sm-10"> 
-      <input type="text" class="form-control" id="DesignDocument" placeholder="" formControlName="DesignDocument">
+       <select formControlName="DesignDocument" id="DesignDocument" class="form-control"> 
+          <option value="">Select a user</option> 
+        <option *ngFor="let obj of jiraUsers" [value]="obj.value">{{obj.name}}</option>
+      </select>
     </div>
   </div>
-  <div class="form-group">
-    <label class="control-label col-sm-2">Development:</label>
-    <div class="col-sm-10"> 
-      <input type="text" class="form-control" id="Development" placeholder="" formControlName="Development">
-    </div>
-  </div>
-  <div class="form-group">
+  <div class="form-group" [ngClass]="{'has-error':!story.controls['DesignTestCases'].valid && story.controls['DesignTestCases'].touched}">
     <label class="control-label col-sm-2">Design Test Case(s):</label>
     <div class="col-sm-10"> 
-      <input type="text" class="form-control" id="DesignTestCases" placeholder="" formControlName="DesignTestCase">
+      <select formControlName="DesignTestCases" id="DesignTestCases" class="form-control"> 
+         <option value="">Select a user</option> 
+        <option *ngFor="let obj of jiraUsers" [value]="obj.value">{{obj.name}}</option>
+      </select>
     </div>
   </div>
-  <div class="form-group">
+  <div class="form-group" [ngClass]="{'has-error':!story.controls['CodeAudit'].valid && story.controls['CodeAudit'].touched}">
     <label class="control-label col-sm-2">Code Audit (10Pearls):</label>
     <div class="col-sm-10"> 
-      <input type="text" class="form-control" id="CodeAudit" placeholder="" formControlName="CodeAudit">
+      <select formControlName="CodeAudit" id="CodeAudit" class="form-control"> 
+         <option value="">Select a user</option> 
+        <option *ngFor="let obj of jiraUsers" [value]="obj.value">{{obj.name}}</option>
+      </select>
     </div>
   </div>
-  <div class="form-group">
+  <div class="form-group" [ngClass]="{'has-error':!story.controls['CodeDeployment'].valid && story.controls['CodeDeployment'].touched}">
     <label class="control-label col-sm-2">Code Deployment (10Pearls site):</label>
     <div class="col-sm-10"> 
-      <input type="text" class="form-control" id="CodeDeployment" placeholder="" formControlName="CodeDeployment">
+      <select formControlName="CodeDeployment" id="CodeDeployment" class="form-control"> 
+         <option value="">Select a user</option> 
+        <option *ngFor="let obj of jiraUsers" [value]="obj.value">{{obj.name}}</option>
+      </select>
     </div>
   </div>
-  <div class="form-group">
+  <div class="form-group"  [ngClass]="{'has-error':!story.controls['QaTesting'].valid && story.controls['QaTesting'].touched}">
     <label class="control-label col-sm-2">QA Testing (10Pearls site):</label>
     <div class="col-sm-10"> 
-      <input type="text" class="form-control" id="QATesting" placeholder="" formControlName="QATesting">
+     <select formControlName="QaTesting" id="QaTesting" class="form-control"> 
+        <option value="">Select a user</option> 
+       <option *ngFor="let obj of jiraUsers" [value]="obj.value">{{obj.name}}</option>
+      </select>
     </div>
   </div>
-  <div class="form-group">
+
+  <div class="form-group" [ngClass]="{'has-error':!story.controls['CodeMerge'].valid && story.controls['CodeMerge'].touched}">
     <label class="control-label col-sm-2">Code Merge:</label>
     <div class="col-sm-10"> 
-      <input type="text" class="form-control" id="CodeMerge" placeholder="" formControlName="CodeMerge">
+     <select formControlName="CodeMerge" id="CodeMerge" class="form-control"> 
+        <option value="">Select a user</option> 
+       <option *ngFor="let obj of jiraUsers" [value]="obj.value">{{obj.name}}</option>
+      </select>
     </div>
   </div>
-  <div class="form-group">
-    <label class="control-label col-sm-2">FunctionalReview:</label>
+ <div class="form-group" [ngClass]="{'has-error':!story.controls['FunctionalReview'].valid && story.controls['FunctionalReview'].touched}">
+    <label class="control-label col-sm-2">Functional Review:</label>
     <div class="col-sm-10"> 
-      <input type="text" class="form-control" id="FunctionalReview" placeholder="" formControlName="FunctionalReview">
+       <select formControlName="FunctionalReview" id="FunctionalReview" class="form-control"> 
+          <option value="">Select a user</option> 
+        <option *ngFor="let obj of jiraUsers" [value]="obj.value">{{obj.name}}</option>
+      </select>
     </div>
   </div>
-  <div class="form-group">
+  <div class="form-group" [ngClass]="{'has-error':!story.controls['DeploymentToDev'].valid && story.controls['DeploymentToDev'].touched}">
     <label class="control-label col-sm-2">Deployment to Dev/QA sites:</label>
     <div class="col-sm-10"> 
-      <input type="text" class="form-control" id=">DeploymentToDev" placeholder="" formControlName="DeploymentToDev">
+    <select formControlName="DeploymentToDev" id="DeploymentToDev" class="form-control" > 
+        <option disabled selected>Select a User</option>
+        <option *ngFor="let obj of jiraUsers" [value]="obj.value" [selected]="i == 0">{{obj.name}}</option>
+      </select>
     </div>
   </div>
-  <div class="form-group">
+
+  <div class="form-group" [ngClass]="{'has-error':!story.controls['QaIntegration'].valid && story.controls['QaIntegration'].touched}">
     <label class="control-label col-sm-2">QA Integration:</label>
     <div class="col-sm-10"> 
-      <input type="text" class="form-control" id="QAIntegration" placeholder="" formControlName="QAIntegration">
+     <select formControlName="QaIntegration" id="QaIntegration" class="form-control"> 
+        <option disabled selected>Select a User</option>
+        <option *ngFor="let obj of jiraUsers" [value]="obj.value">{{obj.name}}</option>
+      </select>
     </div>
   </div>
+
   <div class="form-group"> 
     <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" [disabled]="!user.valid" class="btn btn-default">Submit</button>
+      <button type="submit" [disabled]="!story.valid" class="btn btn-default">Submit</button>
     </div>
   </div>
+
+</fieldset>
+
 </form>
+</div>

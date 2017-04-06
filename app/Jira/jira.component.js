@@ -9,11 +9,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = require("@angular/core");
-let JiraComponent = class JiraComponent {
-    constructor() { }
-    ngOnInit() { }
-};
+var core_1 = require("@angular/core");
+var JiraComponent = (function () {
+    function JiraComponent() {
+    }
+    JiraComponent.prototype.ngOnInit = function () { };
+    JiraComponent.prototype.CreateSubTask = function () {
+        console.log('waaaaaat');
+    };
+    return JiraComponent;
+}());
 JiraComponent = __decorate([
     core_1.Component({
         moduleId: module.id,

@@ -31,7 +31,6 @@ export class BugsComponent {
       this.bugs = new FormGroup({
          Analysis: new FormControl(null,Validators.required),
          Development: new FormControl(null,Validators.required),
-         DesignDocument: new FormControl(null,Validators.required),
          DesignTestCases: new FormControl(null,Validators.required),
          CodeAudit: new FormControl(null,Validators.required),
          CodeDeployment: new FormControl(null,Validators.required),
@@ -39,9 +38,12 @@ export class BugsComponent {
          CodeMerge : new FormControl(null,Validators.required),
          DeploymentToDev : new FormControl(null,Validators.required),
          QaIntegration : new FormControl('',Validators.required),
+         UserName:new FormControl('mudassir.10p',Validators.required),
+         Password:new FormControl('Password9',Validators.required),
+         Ticket:new FormControl('',Validators.required)
       });
     }
-    CreateSubTask(){
-        console.log('test');
+    onSubmit(){
+        console.log(this.bugs);
     }
 }

@@ -1,1 +1,11 @@
-<bugs></bugs>
+<div class="form-group">
+  <label>Select Type</label>
+            <div class="radio">
+              <label><input type="radio" [(ngModel)]="type" name="type" value="Story">Story</label>
+            </div>
+            <div class="radio">
+              <label><input type="radio" [(ngModel)]="type" name="type" value= "Bug">Bug</label>
+            </div>
+  </div>
+<bugs *ngIf="type=='Bug'"></bugs>
+<story *ngIf="type=='Story'"></story>

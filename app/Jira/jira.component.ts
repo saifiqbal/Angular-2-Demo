@@ -10,4 +10,7 @@ export class JiraComponent implements OnInit {
     constructor() { }
 
     ngOnInit() { }
+    CreateSubTask(){
+        console.log('waaaaaat');
+    }
 }

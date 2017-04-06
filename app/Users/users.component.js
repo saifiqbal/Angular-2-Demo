@@ -9,19 +9,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = require("@angular/core");
-const users_service_1 = require("../Services/users.service");
+var core_1 = require("@angular/core");
+var users_service_1 = require("../Services/users.service");
 require("rxjs/add/operator/map");
-let UserComponent = class UserComponent {
-    constructor(_userservice) {
+var UserComponent = (function () {
+    function UserComponent(_userservice) {
         this._userservice = _userservice;
         this.users = [];
     }
-    ngOnInit() {
+    UserComponent.prototype.ngOnInit = function () {
         this.loadAllUsers();
-    }
-    loadAllUsers() {
-        this._userservice.getAllPersons().subscribe(users => { this.users = users; });
+    };
+    UserComponent.prototype.loadAllUsers = function () {
+        var _this = this;
+        this._userservice.getAllPersons().subscribe(function (users) { _this.users = users; });
         this.users = [
             { "UserName": "Saif10P", "FirstName": "Saif", "LastName": "Iqbal" },
             { "UserName": "10Pearls", "FirstName": "Saifullah", "LastName": "Iqbal" },
@@ -36,8 +37,9 @@ let UserComponent = class UserComponent {
             { "UserName": "Test101p", "FirstName": "Ready", "LastName": "Test" },
             { "UserName": "Test1001P", "FirstName": "Started", "LastName": "Test" }
         ];
-    }
-};
+    };
+    return UserComponent;
+}());
 UserComponent = __decorate([
     core_1.Component({
         moduleId: module.id,

@@ -1,11 +1,40 @@
-<form novalidate (ngSubmit)="onSubmit(CreatSubTask)" [formGroup]="bugs" #register="ngForm" class="form-horizontal">
- 
+<div class='jira-component-center'>
+<form (ngSubmit)="onSubmit()" [formGroup]="bugs" #register="ngForm" class="form-horizontal">
+ <fieldset>
+  <legend>Jira Login:</legend>
+  <div class="form-group" [ngClass]="{'has-error':!bugs.controls['UserName'].valid && bugs.controls['UserName'].touched}">
+    <label class="control-label col-sm-2">UserName</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="UserName"  formControlName="UserName">
+      <div *ngIf="bugs.controls['UserName'].hasError('required') && bugs.controls['UserName'].touched" class="alert alert-danger">Required</div>
+    </div>
+  </div>
+  <div class="form-group" [ngClass]="{'has-error':!bugs.controls['Password'].valid && bugs.controls['Password'].touched}">
+    <label class="control-label col-sm-2">Password:</label>
+    <div class="col-sm-10"> 
+      <input type="password" class="form-control" id="Password"  formControlName="Password">
+      <div *ngIf="bugs.controls['Password'].hasError('required') && bugs.controls['Password'].touched" class="alert alert-danger">Required</div>
+    </div>
+  </div>
+ </fieldset>
+    
+   <br>
+   <br>
+
+<fieldset>
+  <legend>SubTask Detail:</legend>
+ <div class="form-group" [ngClass]="{'has-error':!bugs.controls['Ticket'].valid && bugs.controls['Ticket'].touched}">
+    <label class="control-label col-sm-2">Enter Ticket #:</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="Ticket" placeholder="Enter Ticket Number" formControlName="Ticket">
+      <div *ngIf="bugs.controls['Ticket'].hasError('required') && bugs.controls['Ticket'].touched" class="alert alert-danger">Required</div>
+    </div>
+</div>
+
  <div class="form-group" [ngClass]="{'has-error':!bugs.controls['Analysis'].valid && bugs.controls['Analysis'].touched}">
     <label class="control-label col-sm-2">Analysis:</label>
     <div class="col-sm-10">
-      <!--<input type="text" class="form-control" id="Analysis" placeholder="Enter First Name" formControlName="Analysis">
-      <div *ngIf="bugs.controls['Analysis'].hasError('required') && bugs.controls['Analysis'].touched" class="alert alert-danger">First Name is Required</div>-->
-       <select formControlName="Analysis" id="Analysis" class="form-control"> 
+          <select formControlName="Analysis" id="Analysis" class="form-control"> 
          <option value="">Select a user</option> 
         <option *ngFor="let obj of jiraUsers" [value]="obj.value">{{obj.name}}</option>
       </select>
@@ -92,4 +121,8 @@
       <button type="submit" [disabled]="!bugs.valid" class="btn btn-default">Submit</button>
     </div>
   </div>
+
+</fieldset>
+
 </form>
+</div>

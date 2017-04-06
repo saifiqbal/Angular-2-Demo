@@ -9,19 +9,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = require("@angular/core");
-const global_events_1 = require("../Events/global.events");
-let NavBarComponent = class NavBarComponent {
-    constructor(_eventManager) {
+var core_1 = require("@angular/core");
+var global_events_1 = require("../Events/global.events");
+var NavBarComponent = (function () {
+    function NavBarComponent(_eventManager) {
+        var _this = this;
         this._eventManager = _eventManager;
         this.showNavBar = false;
-        this._eventManager._showNavBarEmitter.subscribe((mode) => {
+        this._eventManager._showNavBarEmitter.subscribe(function (mode) {
             if (mode !== null) {
-                this.showNavBar = mode;
+                _this.showNavBar = mode;
             }
         });
     }
-};
+    return NavBarComponent;
+}());
 NavBarComponent = __decorate([
     core_1.Component({
         moduleId: module.id,

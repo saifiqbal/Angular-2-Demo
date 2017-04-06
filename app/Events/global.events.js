@@ -9,17 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = require("@angular/core");
-const BehaviorSubject_1 = require("rxjs/BehaviorSubject");
-let GlobalEventsManager = class GlobalEventsManager {
-    constructor() {
+var core_1 = require("@angular/core");
+var BehaviorSubject_1 = require("rxjs/BehaviorSubject");
+var GlobalEventsManager = (function () {
+    function GlobalEventsManager() {
         this._showNavBar = new BehaviorSubject_1.BehaviorSubject(null);
         this._showNavBarEmitter = this._showNavBar.asObservable();
     }
-    showNavBar(_show) {
+    GlobalEventsManager.prototype.showNavBar = function (_show) {
         this._showNavBar.next(_show); /**/
-    }
-};
+    };
+    return GlobalEventsManager;
+}());
 GlobalEventsManager = __decorate([
     core_1.Injectable(),
     __metadata("design:paramtypes", [])

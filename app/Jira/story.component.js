@@ -9,26 +9,50 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = require("@angular/core");
-const forms_1 = require("@angular/forms");
-let StoryComponent = class StoryComponent {
-    constructor() { }
-    ngOnInit() {
-        this.user = new forms_1.FormGroup({
+var core_1 = require("@angular/core");
+var forms_1 = require("@angular/forms");
+var StoryComponent = (function () {
+    function StoryComponent() {
+        this.jiraUsers = [{ name: 'anum.10p', value: 'Anum Iftikhar' },
+            { name: 'saad', value: 'Saad Khan (10P)' },
+            { name: 'asad.zubair', value: 'Asad Zubair (10Pearls)' },
+            { name: 'nizar', value: 'Nizar Ilyas (10Pearls)' },
+            { name: 'mubashir', value: 'Mubashir Hussain (10Pearls)' },
+            { name: 'Ahmed.10p', value: 'Ahmed Raza (10Pearls)' },
+            { name: 'sadaf.10p', value: 'Sadaf Saeed' },
+            { name: 'sharjeel.ahmed', value: 'Sharjeel Ahmed' },
+            { name: 'mudassir.10p', value: 'Mudassir Khan' },
+            { name: 'saifullah.iqbal', value: 'Saifullah Iqbal' },
+            { name: 'Ziauddin', value: 'Ziauddin' },
+            { name: 'Usman.10p', value: 'usman.10p' },
+            { name: 'Kashif', value: 'kashif' }
+        ];
+    }
+    StoryComponent.prototype.ngOnInit = function () {
+        this.story = new forms_1.FormGroup({
             Analysis: new forms_1.FormControl(null, forms_1.Validators.required),
-            DesignReview: new forms_1.FormControl(null, forms_1.Validators.compose([forms_1.Validators.required, forms_1.Validators.minLength(5), forms_1.Validators.maxLength(15)])),
+            Development: new forms_1.FormControl(null, forms_1.Validators.required),
+            DesignReview: new forms_1.FormControl(null, forms_1.Validators.required),
             DesignDocument: new forms_1.FormControl(null, forms_1.Validators.required),
             DesignTestCases: new forms_1.FormControl(null, forms_1.Validators.required),
             CodeAudit: new forms_1.FormControl(null, forms_1.Validators.required),
             CodeDeployment: new forms_1.FormControl(null, forms_1.Validators.required),
-            QATesting: new forms_1.FormControl(null, forms_1.Validators.required),
+            QaTesting: new forms_1.FormControl(null, forms_1.Validators.required),
             CodeMerge: new forms_1.FormControl(null, forms_1.Validators.required),
             FunctionalReview: new forms_1.FormControl(null, forms_1.Validators.required),
             DeploymentToDev: new forms_1.FormControl(null, forms_1.Validators.required),
-            QAIntegration: new forms_1.FormControl(null, forms_1.Validators.required)
+            QaIntegration: new forms_1.FormControl(null, forms_1.Validators.required),
+            UserName: new forms_1.FormControl('mudassir.10p', forms_1.Validators.required),
+            Password: new forms_1.FormControl('Password9', forms_1.Validators.required),
+            Ticket: new forms_1.FormControl('', forms_1.Validators.required)
         });
-    }
-};
+    };
+    StoryComponent.prototype.onSubmit = function () {
+        debugger;
+        console.log(this.story);
+    };
+    return StoryComponent;
+}());
 StoryComponent = __decorate([
     core_1.Component({
         moduleId: module.id,

@@ -3,6 +3,7 @@ import { FormBuilder,Validators,NgForm,FormGroup,FormControl} from '@angular/for
 
 @Component({
     moduleId:module.id,
+    selector:'register',
     templateUrl:'registration.component.html'
 })
 export class RegistrationComponent implements OnInit {
