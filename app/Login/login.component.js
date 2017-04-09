@@ -9,20 +9,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var auth_service_1 = require("../Services/auth.service");
-var router_1 = require("@angular/router");
-var global_events_1 = require("../Events/global.events");
-var LoginComponent = (function () {
-    function LoginComponent(authService, _router, eventManager) {
+const core_1 = require("@angular/core");
+const auth_service_1 = require("../Services/auth.service");
+const router_1 = require("@angular/router");
+const global_events_1 = require("../Events/global.events");
+let LoginComponent = class LoginComponent {
+    constructor(authService, _router, eventManager) {
         this.authService = authService;
         this._router = _router;
         this.eventManager = eventManager;
         this.userInfo = {};
     }
-    LoginComponent.prototype.ngOnInit = function () {
-    };
-    LoginComponent.prototype.login = function () {
+    ngOnInit() {
+    }
+    login() {
         console.log('login');
         /*pass userInfo to authentication service*/
         this.eventManager.showNavBar(true);
@@ -36,9 +36,8 @@ var LoginComponent = (function () {
         //     else
         //         console.log(res);
         // })
-    };
-    return LoginComponent;
-}());
+    }
+};
 LoginComponent = __decorate([
     core_1.Component({
         templateUrl: 'login.component.html',

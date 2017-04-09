@@ -33,13 +33,19 @@
 
  <div class="form-group" [ngClass]="{'has-error':!bugs.controls['Analysis'].valid && bugs.controls['Analysis'].touched}">
     <label class="control-label col-sm-2">Analysis:</label>
+<!--   
+    <label class="checkbox col-sm-2" style="min-height: 0px !important; margin-left: -4px !important">
+       <input type="checkbox" class="col-sm-2" id="chkbox" [(ngModel)]="assigneeChk"  [ngModelOptions]="{standalone: true}"/>
+    </label>-->
+  <!--*ngIf="!assigneeChk==true" disabled -->
     <div class="col-sm-10">
-          <select formControlName="Analysis" id="Analysis" class="form-control"> 
+       <select formControlName="Analysis" [name]="Analysis" id="Analysis" class="form-control"> 
          <option value="">Select a user</option> 
-        <option *ngFor="let obj of jiraUsers" [value]="obj.value">{{obj.name}}</option>
+        <option *ngFor="let obj of jiraUsers" [value]="obj.value" name="Analysis">{{obj.name}}</option>
       </select>
     </div>
-  </div>
+</div>
+
   <div class="form-group" [ngClass]="{'has-error':!bugs.controls['Development'].valid && bugs.controls['Development'].touched}">
     <label class="control-label col-sm-2">Development:</label>
     <div class="col-sm-10"> 

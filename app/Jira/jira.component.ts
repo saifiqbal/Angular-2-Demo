@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
     moduleId: module.id,
     selector: 'jira',
@@ -11,6 +12,6 @@ export class JiraComponent implements OnInit {
 
     ngOnInit() { }
     CreateSubTask(){
-        console.log('waaaaaat');
+ 
     }
 }
