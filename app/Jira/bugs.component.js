@@ -74,12 +74,22 @@ let BugsComponent = class BugsComponent {
         headers.append('Content-Type', 'application/json');
         let callsarr = [];
         // headers.append("Accept", 'application/json');
+        this.keyIndex = ticketNum.indexOf('-');
+        if (this.keyIndex > 0) {
+            var key = ticketNum.substring(0, this.keyIndex).toString();
+        }
+        else {
+            var key = "";
+        }
+        // console.log(this.keyIndex);
+        // console.log(key);
+        // console.log(ticketNum.substring(0,this.keyIndex).toString());
         assigneeArray.controls.forEach(function (el, index, assigneeArray) {
             let data = {
                 "Jira": {
                     "fields": {
                         "project": {
-                            "key": "PHX"
+                            "key": key
                         },
                         "parent": {
                             "key": `${ticketNum}`

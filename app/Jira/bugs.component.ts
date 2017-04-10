@@ -16,6 +16,7 @@ export class BugsComponent {
     bugs: FormGroup;
     jiraUsers:any[];
     subTaskList:any[];
+    keyIndex:number;
 
   //  arr:any;
     selecteUser:any;
@@ -72,7 +73,7 @@ export class BugsComponent {
         this.bugs.controls.CodeDeployment,this.bugs.controls.QaTesting,this.bugs.controls.CodeMerge
         ,this.bugs.controls.DeploymentToDev,this.bugs.controls.QaIntegration
         ]);
-        let ticketNum=this.bugs.controls.Ticket.value;
+        let ticketNum:string=this.bugs.controls.Ticket.value;
         let subtaskArr=this.subTaskList;
         let username=this.bugs.controls.UserName.value;
         let password=this.bugs.controls.Password.value;
@@ -80,6 +81,15 @@ export class BugsComponent {
         headers.append('Content-Type', 'application/json');
         let callsarr:any[]=[];
         // headers.append("Accept", 'application/json');
+        this.keyIndex=ticketNum.indexOf('-');
+        if(this.keyIndex>0)
+        {
+            var key:string=ticketNum.substring(0,this.keyIndex).toString();
+        } 
+        else
+        {
+            var key="";
+        }
 
         assigneeArray.controls.forEach(function(el,index,assigneeArray){
 
@@ -87,7 +97,7 @@ export class BugsComponent {
                 "Jira":{
                             "fields": {
                                 "project": {
-                                    "key": "PHX"
+                                    "key": key
                                 },
                                 "parent": {
                                     "key": `${ticketNum}`

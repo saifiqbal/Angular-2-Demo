@@ -15,6 +15,7 @@ import { Observable } from "rxjs/Observable";
 export class StoryComponent implements OnInit {
     story: FormGroup;
     jiraUsers:any[];
+    keyIndex:number;
     subTaskList:any[];
     constructor(private _http:Http) {
        this.jiraUsers=[{ value:'anum.10p', name:'Anum Iftikhar'},
@@ -79,6 +80,17 @@ export class StoryComponent implements OnInit {
         headers.append('Content-Type', 'application/json');
         let callsarr:any[]=[];
         // headers.append("Accept", 'application/json');
+
+        this.keyIndex=ticketNum.indexOf('-');
+        if(this.keyIndex>0)
+        {
+            var key:string=ticketNum.substring(0,this.keyIndex).toString();
+        } 
+        else
+        {
+            var key="";
+        }
+
 
         assigneeArray.controls.forEach(function(el,index,assigneeArray){
 
